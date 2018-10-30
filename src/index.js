@@ -71,7 +71,7 @@ export default function plugin (Vue, options = {}) {
                 this.$options._izi.show(Object.assign({}, options, { message, title }));
             },
             hide(toast = null, options = {}) {
-                if (toast && toast.constructor !== String) toast = document.querySelector(toast);
+                if (toast && toast.constructor === String) toast = document.querySelector(toast);
                 if (!toast || toast.constructor !== HTMLDivElement) toast = document.querySelector('.iziToast');
                 if (options && options.constructor !== Object) throw 'Options must be a object';
                 this.$options._izi.hide(options, toast);
